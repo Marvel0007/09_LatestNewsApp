@@ -3,7 +3,6 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useFormState } from "react-dom";
 
 const News = (props) => {
   const [articles, setArticles] = useState([]);
@@ -17,30 +16,40 @@ const News = (props) => {
 
   const updateNews = async () => {
     props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=95fa134969b34c4db6d0c52c787dbd22&page=${page}&pageSize=${props.pageSize}`;
-    setLoadings(true);
+    // Change this in both places:
+const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/${props.country}.json`;
     let data = await fetch(url);
     props.setProgress(30);
     let parsedData = await data.json();
+    
+    // Log the response to the console so you can see if the API key is working
+    console.log("API Response:", parsedData);
+    
     props.setProgress(70);
-    setArticles(parsedData.articles);
-    setTotalResults(parsedData.totalResults);
+    // Safety net: Use empty array/zero if the API returns undefined
+    setArticles(parsedData.articles || []);
+    setTotalResults(parsedData.totalResults || 0);
     setLoadings(false);
 
     props.setProgress(100);
   };
+
   useEffect(() => {
-    document.title=`${capitalizeFirstLetter(props.category)} - NewsMonkey`;
+    document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
     updateNews();
+    // eslint-disable-next-line
   }, []);
 
   const fetchMoreData = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=95fa134969b34c4db6d0c52c787dbd22&page=${page+1}&pageSize=${props.pageSize}`;
+    // Change this in both places:
+const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/${props.country}.json`;
     setPage(page + 1);
     let data = await fetch(url);
     let parsedData = await data.json();
-    setArticles(articles.concat(parsedData.articles));
-    setTotalResults(parsedData.totalResults);
+    
+    // Safety net: prevent crash on scroll if API limits are hit
+    setArticles(articles.concat(parsedData.articles || []));
+    setTotalResults(parsedData.totalResults || 0);
   };
 
   return (
@@ -62,10 +71,9 @@ const News = (props) => {
           <div className="row">
             {articles.map((element) => {
               return (
-                <div className="col-md-4 my-2 d-flex">
+                <div className="col-md-4 my-2 d-flex" key={element.url}>
                   <NewsItem
-                    key={element.url}
-                    title={!element.title ? "" : element.title.slice(0, 80)}
+                    title={!element.title ? "" : element.title.slice(0, 50)}
                     description={
                       !element.description
                         ? ""
@@ -75,7 +83,7 @@ const News = (props) => {
                     newsUrl={element.url}
                     author={element.author}
                     date={element.publishedAt}
-                    source={element.source.name}
+                    source={element.source ? element.source.name : "Unknown"}
                   />
                 </div>
               );
@@ -92,9 +100,11 @@ News.defaultProps = {
   pageSize: 6,
   category: "general",
 };
+
 News.propTypes = {
   country: PropTypes.string,
   pageSize: PropTypes.number,
   category: PropTypes.string,
 };
+
 export default News;
