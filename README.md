@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# 📰 LatestNewsApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LatestNewsApp is a responsive React-based news application that fetches real-time news articles using a News API. Users can explore trending headlines across multiple categories such as Business, Sports, Entertainment, Health, Science, and Technology.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🌍 Live news updates using News API
+- 📂 Category-wise news filtering
+- ♾️ Infinite scrolling for seamless browsing
+- 📱 Fully responsive design
+- ⚡ Fast and optimized React application
+- 📰 Clean UI with Bootstrap/TailwindCSS
+- 🔍 Dynamic news cards with images, author, source, and publish date
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+### Frontend
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Bootstrap / TailwindCSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### APIs
+- NewsAPI
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📸 Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="1758" height="864" alt="Screenshot 2026-05-18 101620" src="https://github.com/user-attachments/assets/eccbdf33-f833-4f77-984c-be719b2d3093" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1585" height="865" alt="Screenshot 2026-05-18 101705" src="https://github.com/user-attachments/assets/539b74f1-e65e-46bb-b02a-08717f6472fe" />
 
-### `npm run eject`
+<img width="931" height="90" alt="Screenshot 2026-05-18 101717" src="https://github.com/user-attachments/assets/05635763-294d-4ef3-9729-73854dc0ba60" />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**✨ Functionalities**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Fetches latest headlines dynamically
+- Displays:
+  - News title
+  - Description
+  - Source
+  - Author
+  - News image
+- Opens full article in a new tab
+- Loading spinner while fetching data
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+**📚 Learning Outcomes**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Through this project, I learned:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React component architecture
+- API fetching with Axios/Fetch
+- State management using Hooks
+- Infinite scrolling implementation
+- Responsive UI development
+- Handling asynchronous operations
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**🔮 Future Improvements**
 
-### Analyzing the Bundle Size
+  🔍 Add search functionality
+  🌙 Dark mode support
+  🌐 Multi-language news
+  ❤️ Bookmark/save articles
+  📊 Trending analytics section
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👨‍💻 Author
+Shivam Shukla
